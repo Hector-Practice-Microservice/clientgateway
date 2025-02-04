@@ -40,7 +40,8 @@ export class ProductsController {
 
   @Delete(':id')
   deleteProduct(@Param('id') id:string){
-    return this.productsClient.send({cmd: 'delete_product'},{id}).pipe(
+    return this.productsClient.send({cmd: 'delete_product'},{id}).
+    pipe(
       catchError(err => {throw new RpcException(err)})
     );
   }
